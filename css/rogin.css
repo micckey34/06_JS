@@ -1,0 +1,342 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        background: linear-gradient(#e8daf5, #7d17e4);
+        font-family: 'Hiragino Mincho Pro';
+    }
+    
+    .ui {
+        width: 80%;
+        min-width: 800px;
+        height: 80vh;
+        margin: 4rem auto;
+        background: linear-gradient( #7d17e4, #e8daf5);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .input {
+        box-sizing: border-box;
+        width: 35%;
+        min-width: 350px;
+        height: 80%;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        border-radius: 10px;
+        background: rgb(168, 87, 243);
+        box-shadow: 0 0 10px black;
+        font-size: 22px;
+        color: azure;
+    }
+    
+    .add {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .pass {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .input p {
+        margin-bottom: 2rem;
+        text-shadow: 0 0 10px black;
+    }
+    
+    input {
+        width: 90%;
+        height: 35px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        background: rgba(250, 255, 255, 1);
+        font-size: 18px;
+        font-family: 'Hiragino Mincho Pro';
+    }
+    
+    .pass input {
+        letter-spacing: 5px;
+    }
+    
+    .button {
+        width: 100%;
+        display: flex;
+    }
+    
+    button {
+        width: 40%;
+        height: 40px;
+        margin: 0 auto;
+        border-radius: 10px;
+        outline: none;
+        background: rgb(190, 166, 235);
+        font-family: 'Hiragino Mincho Pro';
+        letter-spacing: 5px;
+        color: azure;
+        font-size: 20px;
+    }
+    
+    button:hover {
+        background: azure;
+        color: blueviolet;
+    }
+    
+    button:active {
+        color: blueviolet;
+        background: rgb(218, 219, 219);
+    }
+    
+    .start {
+        width: 50%;
+        height: 80%;
+        padding: 2rem;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    
+    h1 {
+        font-size: 60px;
+        color: azure;
+        text-shadow: 5px 5px 8px rgb(10, 10, 10);
+        margin: 1rem 0 6rem 0;
+    }
+    
+    .start button {
+        display: block;
+        width: 60%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: none;
+        border: 2px solid azure;
+        color: azure;
+        background: #8314f1;
+        border-radius: 10px;
+        box-shadow: 0 0 10px black;
+        margin: 2px auto;
+    }
+    
+    .start button:hover {
+        width: 65%;
+        height: 54px;
+        margin: 0 auto;
+        line-height: 54px;
+        font-size: 38px;
+        background: rgb(250, 249, 252);
+        box-shadow: 0 0 10px rgb(155, 92, 236);
+        color: blueviolet;
+        border: 2px solid #7d17e4;
+    }
+    
+    .start button:active {
+        width: 65%;
+        height: 54px;
+        margin: 0 auto;
+        line-height: 54px;
+        font-size: 38px;
+        background: rgb(117, 13, 236);
+        box-shadow: 0 0 10px rgb(10, 10, 10);
+        color: azure;
+    }
+    
+    @media screen and (max-width: 959px) {
+        body {
+            width: 100%;
+            background: linear-gradient(#e8daf5, #7d17e4);
+            font-family: 'Hiragino Mincho Pro';
+        }
+        .ui {
+            width: 100%;
+            min-width: 800px;
+            height: 80vh;
+            margin: 4rem auto;
+            background: linear-gradient( #7d17e4, #e8daf5);
+            border-radius: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .input {
+            width: 35%;
+            min-width: 350px;
+            height: 80%;
+            background: rgb(168, 87, 243);
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            box-sizing: border-box;
+            font-size: 22px;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            color: azure;
+            padding: 0 1rem;
+        }
+        .add {
+            width: 100%;
+            padding: 0 0.5rem;
+        }
+        .pass {
+            width: 100%;
+            padding: 0 0.5rem;
+        }
+        input {
+            width: 100%;
+            height: 35px;
+            margin: 0 auto;
+            outline: none;
+            font-size: 16px;
+            padding: 0 1rem;
+            font-family: 'Hiragino Mincho Pro';
+            background: rgba(250, 255, 255, 1);
+            border: none;
+            /* box-shadow: inset 0 0 20px gray; */
+            border-radius: 5px;
+        }
+        h1 {
+            font-size: 50px;
+            color: azure;
+            text-shadow: 5px 5px 8px rgb(10, 10, 10);
+            margin: 1rem 0 6rem 0;
+        }
+    }
+    
+    @media screen and (max-width: 480px) {
+        body {
+            width: 100%;
+            background: linear-gradient(#e8daf5, #7d17e4);
+            font-family: 'Hiragino Mincho Pro';
+        }
+        .ui {
+            width: 100%;
+            min-width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column-reverse;
+            border-radius: 0;
+            margin: 0;
+            position: relative;
+        }
+        .input {
+            position: absolute;
+            top: 300px;
+            width: 100%;
+            min-width: 100%;
+            height: 350px;
+            box-sizing: border-box;
+            font-size: 22px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            color: azure;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+            z-index: 10;
+        }
+        .input p {
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px black;
+        }
+        .add {
+            width: 100%;
+            padding: 3rem 0 0 0;
+        }
+        .pass {
+            width: 100%;
+            padding: 0;
+        }
+        input {
+            width: 100%;
+            height: 35px;
+            margin: 0 auto;
+            outline: none;
+            font-size: 18px;
+            padding: 0 1rem;
+            font-family: 'Hiragino Mincho Pro';
+            background: rgba(250, 255, 255, 1);
+            border: none;
+            border-radius: 5px;
+        }
+        .button {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        button {
+            width: 40px;
+            height: 40px;
+            margin: 1rem;
+            border-radius: 50%;
+            outline: none;
+            background: rgb(190, 166, 235);
+            font-family: 'Hiragino Mincho Pro';
+            letter-spacing: 0;
+            color: azure;
+            font-size: 14px;
+        }
+        .start {
+            position: relative;
+            top: 0;
+            width: 100%;
+            height: 702px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            padding: 0;
+        }
+        h1 {
+            font-size: 80px;
+            height: 300px;
+            color: azure;
+            text-shadow: 5px 5px 8px rgb(10, 10, 10);
+            margin: 1rem 1rem 250px 1rem;
+        }
+        .start button {
+            display: block;
+            width: 60%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 30px;
+            text-decoration: none;
+            border: 2px solid azure;
+            color: azure;
+            background: #8314f1;
+            border-radius: 10px;
+            box-shadow: 0 0 10px black;
+            margin: 0 auto 1rem auto;
+        }
+        .start button:hover {
+            width: 60%;
+            height: 50px;
+            margin: 0 auto;
+            line-height: 50px;
+            font-size: 30px;
+            background: #8314f1;
+            box-shadow: 0 0 10px black;
+            color: azure;
+            border: 2px solid azure;
+            margin: 0 auto 1rem auto;
+        }
+    }
