@@ -20,7 +20,7 @@ header {
     width: 100%;
     height: 50px;
     padding: 0 2rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
     z-index: 10;
     display: flex;
     align-items: center;
@@ -59,7 +59,7 @@ main {
 
 h2 {
     height: 10%;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
 }
 
 .task {
@@ -85,8 +85,42 @@ h2 {
     overflow: scroll;
 }
 
-ul {
+.myText {
+    float: right;
+    clear: both;
+    color: blueviolet;
+    background: azure;
     margin-bottom: 1rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.myTime {
+    text-align: right;
+    font-size: 13px;
+    color: gray;
+}
+
+.otherText {
+    float: left;
+    clear: both;
+    color: blueviolet;
+    background: azure;
+    color: azure;
+    background: blueviolet;
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+}
+
+.time {
+    display: flex;
+    font-size: 13px;
+    color: rgb(204, 200, 200);
+}
+
+.time p {
+    margin-right: 5px;
 }
 
 .text-box {
@@ -103,6 +137,7 @@ ul {
     padding: 1rem;
     border: none;
     resize: none;
+    font-size: 20px;
     background: rgba(200, 200, 200, 0.5);
 }
 
@@ -125,7 +160,7 @@ footer {
     width: 100%;
     height: 50px;
     padding: 0 2rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
 }
 
 footer a {
@@ -133,6 +168,101 @@ footer a {
     text-decoration: none;
     font-weight: bold;
     color: black;
+}
+
+
+/* =========================================== */
+
+:root {
+    --clr-primary: #f7f7f7;
+    --clr-blue: rgb(225, 84, 223);
+    --clr-light: #fff;
+    --clr-black: #282828;
+    --clr-gray: #666;
+}
+
+.fa-plus {
+    float: right;
+}
+
+h3 {
+    background: var(--clr-blue);
+    color: var(--clr-light);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.task_list {
+    background: var(--clr-light);
+    height: 2.5rem;
+    line-height: 2.5rem;
+    color: var(--clr-gray);
+}
+
+.task_list:nth-child(2n) {
+    background: var(--clr-primary);
+}
+
+span {
+    background: rgb(181, 25, 25);
+    height: 2.5rem;
+    margin-right: 1.3rem;
+    text-align: center;
+    color: var(--clr-light);
+    width: 0;
+    display: inline-block;
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
+span:hover {
+    width: 40px;
+    opacity: 1;
+}
+
+.task_ul {
+    list-style: none;
+}
+
+.task input {
+    color: var(--clr-gray);
+    border: 2px solid gray;
+    width: 90%;
+    background: var(--clr-primary);
+    padding: 0.6rem;
+    /* 親のサイズに合わせる */
+    box-sizing: border-box;
+}
+
+.task input:focus {
+    background: var(--clr-light);
+    box-sizing: border-box;
+    border: 2px solid #56adcf;
+    outline: none;
+}
+
+#container {
+    /* background: gray; */
+    width: 80%;
+    margin: 0 auto;
+    background: var(--clr-primary);
+    border: 1px solid gray;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.completed {
+    color: gray;
+    text-decoration: line-through;
+}
+
+.add_btn {
+    color: #fff;
+    font-weight: bold;
+    background: #7d17e4;
+    width: 10%;
+    height: 2.3rem;
 }
 
 @media screen and (max-width: 950px) {
