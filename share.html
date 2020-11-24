@@ -36,7 +36,7 @@
             <div class="text-box">
                 <textarea name="" id="text" cols="30" rows="10"></textarea>
                 <div class="btn-box">
-                    <button>CLEAR</button>
+                    <button id="clear">CLEAR</button>
                     <button id="send">SEND</button>
                 </div>
             </div>
@@ -143,7 +143,9 @@
             $('#header-text').css('opacity', '0');
         }
         const db2 = firebase.firestore().collection('chat');
-
+        $('#clear').on('click', function() {
+            $('#text').val('');
+        });
         $('#send').on('click', function() {
             const data = {
                 name: $('#myName').val(),

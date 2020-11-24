@@ -1,0 +1,117 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: 'Hiragino Mincho Pro';
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        background: linear-gradient(azure, #7d17e4) fixed;
+    }
+    
+    .ui {
+        width: 80%;
+        min-width: 800px;
+        height: 80vh;
+        margin: 4rem auto;
+        background: linear-gradient( #7d17e4, azure);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    p {
+        margin-bottom: 1rem;
+        font-size: 27px;
+        color: azure;
+        text-shadow: 0 0 10px black;
+        letter-spacing: 2px;
+    }
+    
+    input {
+        width: 50%;
+        height: 40px;
+        font-size: 25px;
+        text-align: center;
+        margin-bottom: 3rem;
+        background: rgba(240, 255, 255, 0.5);
+        border: none;
+        border-radius: 5px;
+    }
+    
+    #password {
+        letter-spacing: 10px;
+    }
+    
+    button {
+        width: 20%;
+        height: 40px;
+        margin-bottom: 2rem;
+        border-radius: 10px;
+        outline: none;
+        background: rgba(125, 23, 228, 0.5);
+        letter-spacing: 5px;
+        color: azure;
+        font-size: 20px;
+    }
+    
+    button:hover {
+        background: azure;
+        color: #7d17e4;
+    }
+    
+    button:active {
+        color: blueviolet;
+        background: rgb(218, 219, 219);
+    }
+    
+    #login {
+        display: block;
+        width: 40%;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: none;
+        border: 2px solid azure;
+        color: azure;
+        background: #8314f1;
+        border-radius: 10px;
+        box-shadow: 0 0 10px black;
+        margin: 2px auto;
+    }
+    
+    #login:hover {
+        background: rgb(250, 249, 252);
+        box-shadow: 0 0 10px rgb(155, 92, 236);
+        color: blueviolet;
+        border: 2px solid #7d17e4;
+    }
+    
+    #login:active {
+        background: rgb(117, 13, 236);
+        box-shadow: 0 0 10px rgb(10, 10, 10);
+        color: azure;
+    }
+    
+    a {
+        display: block;
+        width: 200px;
+        height: 40px;
+        margin-top: 4rem;
+        border-radius: 10px;
+        background: rgba(125, 23, 228, 0.7);
+        line-height: 40px;
+        text-align: center;
+        font-size: 25px;
+        text-decoration: none;
+        color: azure;
+    }

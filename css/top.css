@@ -1,0 +1,121 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: 'Hiragino Mincho Pro';
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        background: linear-gradient(azure, #7d17e4) fixed;
+    }
+    
+    .ui {
+        width: 80%;
+        min-width: 800px;
+        height: 80vh;
+        margin: 4rem auto;
+        background: linear-gradient( #7d17e4, azure);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .login {
+        width: 45%;
+        height: 90%;
+        padding: 1rem 5rem;
+    }
+    
+    .login h1 {
+        font-size: 60px;
+        letter-spacing: 3rem;
+        color: azure;
+        text-shadow: 5px 5px 10px black;
+    }
+    
+    .login p {
+        margin-top: 1rem;
+        font-size: 10px;
+    }
+    
+    .login a {
+        display: block;
+        width: 60%;
+        height: 50px;
+        line-height: 50px;
+        font-size: 25px;
+        text-align: center;
+        margin: 9.3rem 0 0 0;
+        color: azure;
+        background: #7d17e4;
+        border: 2px solid azure;
+        text-decoration: none;
+        cursor: pointer;
+        letter-spacing: 2px;
+        box-shadow: 5px 5px 10px #7d17e4;
+    }
+    
+    .login a:hover {
+        color: #7d17e4;
+        background: azure;
+        border: 2px solid #7d17e4;
+        box-shadow: 5px 5px 10px azure;
+    }
+    
+    .input {
+        width: 45%;
+        height: 90%;
+        border-radius: 10px;
+        background: linear-gradient(rgba(240, 255, 255, 0.5), rgba(125, 23, 228, 0.5));
+        display: flex;
+        flex-direction: column;
+        padding: 2rem 3%;
+    }
+    
+    .input p {
+        margin: 2rem 0;
+        letter-spacing: 2px;
+        font-size: 24px;
+        color: azure;
+        text-shadow: 0 0 10px #7d17e4;
+    }
+    
+    input {
+        width: 100%;
+        height: 35px;
+        font-size: 20px;
+        margin-bottom: 3rem;
+        background: rgba(240, 255, 255, 0.5);
+        border: none;
+        border-radius: 5px;
+        padding: 0 1rem;
+    }
+    
+    #password {
+        letter-spacing: 5px;
+    }
+    
+    .input button {
+        width: 40%;
+        height: 50px;
+        margin: 2rem auto 0 auto;
+        font-size: 25px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        background: rgba(240, 255, 255, 0.8);
+    }
+    
+    .input button:hover {
+        background: azure;
+    }
+    
+    .input button:active {
+        background: rgba(240, 255, 255, 0.8);
+    }
