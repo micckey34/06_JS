@@ -73,6 +73,7 @@
             let password = $(`#password`).val();
             firebase.auth().createUserWithEmailAndPassword(mailAddress, password)
                 // window.location.href = 'select.html'
+            arelt('ok')
                 .catch(function(error) {
                     alert('登録できません（' + error.message + '）');
                 });
