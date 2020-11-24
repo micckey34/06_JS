@@ -30,7 +30,10 @@
     .login {
         width: 45%;
         height: 90%;
-        padding: 1rem 5rem;
+        padding: 1rem 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .login h1 {
@@ -40,11 +43,6 @@
         text-shadow: 5px 5px 10px black;
     }
     
-    .login p {
-        margin-top: 1rem;
-        font-size: 10px;
-    }
-    
     .login a {
         display: block;
         width: 60%;
@@ -52,7 +50,6 @@
         line-height: 50px;
         font-size: 25px;
         text-align: center;
-        margin: 9.3rem 0 0 0;
         color: azure;
         background: #7d17e4;
         border: 2px solid azure;
@@ -67,6 +64,11 @@
         background: azure;
         border: 2px solid #7d17e4;
         box-shadow: 5px 5px 10px azure;
+    }
+    
+    .login p {
+        margin-top: 1rem;
+        font-size: 12px;
     }
     
     .input {
