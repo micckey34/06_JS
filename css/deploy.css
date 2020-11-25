@@ -1,0 +1,86 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        text-decoration: none;
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        background: linear-gradient(azure, #7d17e4) fixed;
+        font-family: 'Hiragino Mincho Pro';
+    }
+    
+    .ui {
+        width: 80%;
+        min-width: 800px;
+        height: 80vh;
+        margin: 4rem auto;
+        background: linear-gradient( #7d17e4, azure);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .menber {
+        width: 30%;
+        height: 80%;
+        position: relative;
+    }
+    
+    .name {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background: rgba(120, 23, 228, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: azure;
+    }
+    
+    .contents {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        z-index: 10;
+        opacity: 0;
+        transition: 1.0s;
+        background: rgba(120, 23, 228, 0.8);
+        border: azure 2px solid;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .contents:hover {
+        opacity: 1;
+    }
+    
+    .contents a {
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+        text-decoration: none;
+        color: azure;
+        font-size: 20px;
+        display: block;
+        transition: 0.5s;
+    }
+    
+    .contents a:hover {
+        color: #7d17e4;
+        background: azure;
+    }

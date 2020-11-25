@@ -1,0 +1,50 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: 'Hiragino Mincho Pro';
+        text-decoration: none;
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        background: linear-gradient(azure, #7d17e4) fixed;
+    }
+    
+    .ui {
+        width: 80%;
+        min-width: 800px;
+        height: 80vh;
+        margin: 4rem auto;
+        background: linear-gradient( #7d17e4, azure);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .group {
+        width: 30%;
+        height: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .content {
+        width: 100%;
+        height: 45%;
+        display: block;
+        background: rgba(120, 23, 228, 0.5);
+        border: 2px solid azure;
+        padding: 2rem;
+        font-size: 25px;
+        color: azure;
+        border-radius: 10px;
+    }
