@@ -76,6 +76,8 @@
             let password = $(`#password`).val();
             firebase.auth().signInWithEmailAndPassword(mailAddress, password)
                 .then(user => {
+                    const mail = $('#mailAddress').val();
+                    localStorage.setItem('mail', mail)
                     window.location.href = 'select.html';
                     // ログイン成功
                     // ページを移動する、ユーザーの情報を取得して処理を行う、等する
@@ -84,6 +86,10 @@
                     alert('ログインできませんでした');
                 });
         });
+        if (localStorage.getItem('mail')) {
+            const mail = localStorage.getItem('mail');
+            $('#mailAddress').val(mail);
+        }
     </script>
 </body>
 

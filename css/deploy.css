@@ -40,7 +40,7 @@
         width: 100%;
         height: 100%;
         border-radius: 10px;
-        background: rgba(120, 23, 228, 0.5);
+        background: linear-gradient( azure, #7d17e4);
         display: flex;
         justify-content: center;
         align-items: center;

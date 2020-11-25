@@ -13,19 +13,25 @@
 
 <body>
     <header>
-        <h1>SHARE LIST</h1>
+        <h1>SHARE ROOM</h1>
         <p id="header-text">名前を決めてください</p>
         <input type="text" id="myName">
         <button id="save">save</button>
     </header>
     <main>
-        <div class="task">
-            <h2>TASK MENU</h2>
-            <div id="container">
-                <h3>To-do list<i class="fas fa-plus"></i></h3>
-                <input type="text" id="task" placeholder="Add New Todo"><button class="add_btn">+</button>
-                <ul class="task_ul">
-                </ul>
+        <div class="left">
+            <div class="img">
+                <h2>IMAGE</h2>
+                <div id="imgSample" style="display:block;width:700px;height:300px;background-color:#c0c0c0;"></div>
+            </div>
+            <div class="task">
+                <h2>MEMO</h2>
+                <div id="container">
+                    <h3>MEMO list<i class="fas fa-plus"></i></h3>
+                    <input type="text" id="task" placeholder="メモメモ"><button class="add_btn">+</button>
+                    <ul class="task_ul">
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="chat">
@@ -83,8 +89,6 @@
         // 中央線のチェック
         $(function() {
             $('.task_ul').on('click', 'li', function() {
-                // alert('click Li');
-                // console.log($(this).css('color'));
                 let check = $(this).toggleClass('completed');
             });
 
@@ -108,7 +112,7 @@
 
 
             // firebase add
-            const db = firebase.firestore().collection('shere_task');
+            const db = firebase.firestore().collection('share_task');
             db.orderBy('time', 'desc').onSnapshot(function(querySnapshot) {
                 // console.log(querySnapshot)
                 const dataArray = [];
@@ -124,7 +128,7 @@
                 $('.task_ul').on('click', 'span', function() {
                     // alert('click on a span')
                     // console.log(this.id);
-                    firebase.firestore().collection('shere_task').doc(this.id).delete().then(function() {
+                    firebase.firestore().collection('share_task').doc(this.id).delete().then(function() {
                         console.log("Document successfully deleted!");
                     }).catch(function(error) {
                         console.error("Error removing document: ", error);
@@ -156,7 +160,7 @@
             $('#text').val('');
         });
         db2.orderBy('time', 'desc').onSnapshot(function(querySnapshot) {
-            console.log(querySnapshot.docs);
+            // console.log(querySnapshot.docs);
             const dataArray = [];
             const myName = $('#myName').val();
             querySnapshot.docs.forEach(function(doc) {
@@ -172,6 +176,28 @@
 
             })
         })
+    </script>
+    <script>
+        var config = {
+            apiKey: 'AIzaSyApA-l0cFQWkGR0Ua9-AUk_2NRsOMpCRZs',
+            authDomain: 'js-battle-5a060.firebaseapp.com',
+            databaseURL: 'https://js-battle-5a060.firebaseio.com',
+            storageBucket: 'js-battle-5a060.appspot.com'
+        };
+        firebase.initializeApp(config);
+        //ストレージのルートのリファレンスを取得
+        var storageRef = firebase.storage().ref();
+        //ストレージのルートにあるsample.pngのリファレンスを取得    
+        var imgSample = storageRef.child('sample.png');
+        window.onload = function() {
+            //htmlロード完了したらストレージの画像を表示してみる
+            imgSample.getDownloadURL().then(function(url) {
+                document.getElementById("imgSample").style.backgroundImage = "url(" + url + ")";
+            }).catch(function(error) {
+                // Handle any errors
+                console.log(error);
+            });
+        };
     </script>
 </body>
 
