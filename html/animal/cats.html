@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATS</title>
+    <link rel="stylesheet" href="css/animals.css">
+</head>
+
+<body>
+    <div class="main" id="img-box">
+
+    </div>
+    <div class="text"><input type="text" id="text"></div>
+    <div class="btn">
+        <button id="next">NEXT</button>
+        <button id="share">SHARE</button>
+        <button id="back">BACK</button>
+    </div>
+    <script src="jquery-3.5.1.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyApA-l0cFQWkGR0Ua9-AUk_2NRsOMpCRZs",
+            authDomain: "js-battle-5a060.firebaseapp.com",
+            databaseURL: "https://js-battle-5a060.firebaseio.com",
+            projectId: "js-battle-5a060",
+            storageBucket: "js-battle-5a060.appspot.com",
+            messagingSenderId: "248650620062",
+            appId: "1:248650620062:web:3c02d43b37289d05192f8f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script>
+        let img = ['img/cats/1.jpg',
+            'img/cats/2.jpg',
+            'img/cats/3.jpg',
+            'img/cats/4.jpg',
+            'img/cats/5.jpg',
+            'img/cats/6.jpg',
+            'img/cats/7.jpg',
+            'img/cats/8.jpg',
+            'img/cats/9.jpg',
+            'img/cats/10.jpg',
+
+        ];
+        var random = Math.floor(Math.random() * img.length);
+        var output = "<img src=" + img[random] + ">";
+        $('#img').html(output);
+        $('#next').on('click', function() {
+            var random = Math.floor(Math.random() * img.length);
+            var output = '<img id="img" src=' + img[random] + '>';
+            $('#img-box').html(output);
+        })
+        const db = firebase.firestore().collection('share_img');
+        $('#share').on('click', function() {
+            const share_url = $('#img').attr('src');
+            console.log(share_url);
+            const img = {
+                img: share_url,
+                text: $('#text').val(),
+                time: firebase.firestore.FieldValue.serverTimestamp(),
+            }
+            db.add(img);
+        })
+        $('#back').on('click', function() {
+            window.location.href = '../animal.html';
+        });
+    </script>
+</body>
+
+</html>

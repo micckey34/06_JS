@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    #main-container {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="main-container"></div>
+
+  <script src="https://typpo.github.io/spacekit/build/spacekit.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+
+  <script>
+     const apiKey = "4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d";
+      const apodUrl = "https://api.nasa.gov/neo/rest/v1/neo?api_key=4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d";
+
+
+      $(function() {
+        axios.get('https://api.nasa.gov/neo/rest/v1/neo/2001221?api_key=4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d')
+            .then(function (response) {
+              // console.log(response.data.orbital_data.mean_anomaly)
+              // console.log(response.data.orbital_data.epoch_osculation)
+              console.log(response.data.orbital_data.epoch_osculation)
+              // console.log(response);
+            }).catch(function (error) {
+              // リクエスト失敗時の処理(errorにエラー内容が入っている)
+              console.log(error);
+            });
+
+
+
+
+
+        const viz = new Spacekit.Simulation(document.getElementById('main-container'), {});
+
+        // 惑星
+        viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+        viz.createObject('earth', Spacekit.SpaceObjectPresets.EARTH);
+        viz.createObject('mercury', Spacekit.SpaceObjectPresets.MERCURY);
+
+
+        const roadster = viz.createObject('spaceman', {
+          labelText: 'Tesla Roadster',
+          ephem: new Spacekit.Ephem({
+            // These parameters define orbit shape.
+            a: 1.324870564730606E+00,
+            e: 2.557785995665682E-01,
+            i: 1.077550722804860E+00,
+
+            // These parameters define the orientation of the orbit.
+            om: 3.170946964325638E+02,
+            w: 1.774865822248395E+02,
+            ma: 1.764302192487955E+02,
+
+            // Where the object is in its orbit.
+            epoch: 2458426.500000000,
+          }, 'deg'),
+        });
+
+        // 背景
+        viz.createStars();
+        // viz.createSkybox(Spacekit.SkyboxPresets.NASA_TYCHO);
+        viz.createSkybox(Spacekit.SkyboxPresets.ESO_GIGAGALAXY);
+
+
+      })
+
+     
+
+  </script>
+
+</body>
+
+</html>

@@ -20,7 +20,7 @@ header {
     width: 100%;
     height: 50px;
     padding: 0 2rem;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(128, 23, 228, 0.8);
     z-index: 10;
     display: flex;
     align-items: center;
@@ -28,6 +28,8 @@ header {
 
 h1 {
     width: 60%;
+    color: azure;
+    text-shadow: 5px 5px 10px black;
 }
 
 header p {
@@ -60,39 +62,72 @@ main {
 .chat h2 {
     height: 8%;
     padding: 1rem 2rem;
+    text-shadow: 5px 5px 10px black;
+    color: azure;
 }
 
 .left {
     width: 60%;
     height: 100%;
     margin-bottom: 50px;
-    border: rgb(7, 236, 236) 2px solid;
+    border: azure 2px solid;
     display: flex;
     flex-direction: column;
 }
 
-.img {
+.img-box {
     height: 60%;
     width: 100%;
-    background: bla/ck;
-    border-bottom: rgb(7, 236, 236) 2px solid;
+    padding: 0 2rem;
+    border-bottom: azure 2px solid;
+    display: flex;
+    flex-direction: column;
+}
+
+#img-output {
+    width: 100%;
+    height: 80%;
+    overflow: scroll;
+    text-align: center;
+}
+
+#img-output h4 {
+    font-size: 20px;
+    color: azure;
+}
+
+.img {
+    height: 100%;
+    clear: both;
+    margin-bottom: 2rem;
+}
+
+#imgSample {
+    height: 80%;
+    margin: 0 auto;
+    background: black;
 }
 
 h2 {
     padding: 10px 2rem;
+    text-shadow: 5px 5px 10px black;
+    color: azure;
 }
 
 .task {
     height: 40%;
     width: 100%;
-    position: relative;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .chat {
     width: 40%;
     height: 100%;
     margin-bottom: 50px;
-    border: rgb(228, 80, 11) 2px solid;
+    border: azure 2px solid;
+    border-left: none;
     display: flex;
     flex-direction: column;
 }
@@ -107,17 +142,46 @@ h2 {
 .myText {
     float: right;
     clear: both;
-    color: blueviolet;
+    color: #7d17e4;
     background: azure;
     margin-bottom: 1rem;
     padding: 0 1rem;
     border-radius: 10px;
 }
 
+.myText p {
+    text-align: right;
+}
+
+.myImg {
+    margin-bottom: 1rem;
+}
+
+.otherImg {
+    margin-bottom: 1rem;
+}
+
+.myImg img {
+    width: 70%;
+    float: right;
+    clear: both;
+}
+
+.otherImg img {
+    width: 70%;
+    clear: both;
+}
+
+.myText a {
+    color: #7d17e4;
+    display: block;
+}
+
 .myTime {
     text-align: right;
     font-size: 13px;
     color: gray;
+    clear: both;
 }
 
 .otherText {
@@ -145,14 +209,12 @@ h2 {
 .text-box {
     height: 30%;
     width: 100%;
-    background: rgba(200, 200, 200, 0.5);
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .text-box textarea {
     height: 75%;
     width: 100%;
-    margin-top: 0.5rem;
     padding: 1rem;
     border: none;
     resize: none;
@@ -193,44 +255,66 @@ footer a {
 
 /* =========================================== */
 
-:root {
-    --clr-primary: #f7f7f7;
-    --clr-blue: rgb(125, 23, 228);
-    --clr-light: #fff;
-    --clr-black: #282828;
-    --clr-gray: #666;
+.task h2 {
+    /* background: var(--clr-blue); */
+    /* color: var(--clr-light); */
+    height: 20%;
+    text-transform: uppercase;
+}
+
+.task-input {
+    display: flex;
+    height: 15%;
+}
+
+.task-input input {
+    width: 90%;
+    height: 100%;
+    padding: 0 1rem;
+}
+
+.task input:focus {
+    box-sizing: border-box;
+    border: 2px solid #56adcf;
+    outline: none;
+}
+
+.add_btn {
+    font-weight: bold;
+    background: azure;
+    width: 10%;
+    /* border: none; */
+    font-size: 20px;
+    height: 100%;
+}
+
+#container {
+    width: 100%;
+    height: 65%;
+    overflow: scroll;
 }
 
 .fa-plus {
     float: right;
 }
 
-h3 {
-    background: var(--clr-blue);
-    color: var(--clr-light);
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    font-weight: normal;
-}
-
 .task_list {
-    background: var(--clr-light);
+    background: rgba(226, 204, 247, 0.5);
     height: 2.5rem;
     line-height: 2.5rem;
-    color: var(--clr-gray);
+    color: azure;
 }
 
 .task_list:nth-child(2n) {
-    background: var(--clr-primary);
+    background: rgba(240, 238, 241, 0.3);
 }
 
 span {
-    background: rgb(181, 25, 25);
+    background: rgb(255, 0, 0);
     height: 2.5rem;
     margin-right: 1.3rem;
     text-align: center;
-    color: var(--clr-light);
+    color: azure;
     width: 0;
     display: inline-block;
     transition: 0.2s linear;
@@ -246,43 +330,9 @@ span:hover {
     list-style: none;
 }
 
-.task input {
-    color: var(--clr-gray);
-    border: 2px solid gray;
-    width: 90%;
-    background: var(--clr-primary);
-    padding: 0.6rem;
-    /* 親のサイズに合わせる */
-    box-sizing: border-box;
-}
-
-.task input:focus {
-    background: var(--clr-light);
-    box-sizing: border-box;
-    border: 2px solid #56adcf;
-    outline: none;
-}
-
-#container {
-    width: 100%;
-    height: 80%;
-    background: var(--clr-primary);
-    border: 1px solid gray;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
-    overflow: scroll;
-}
-
 .completed {
-    color: gray;
+    color: rgba(128, 23, 228, 0.3);
     text-decoration: line-through;
-}
-
-.add_btn {
-    color: #fff;
-    font-weight: bold;
-    background: #7d17e4;
-    width: 10%;
-    height: 2.3rem;
 }
 
 @media screen and (max-width: 950px) {
@@ -345,9 +395,6 @@ span:hover {
     .text-box textarea {
         margin: 0;
         padding: 5px;
-    }
-    .btn-box {
-        /* height: 25%; */
     }
     .btn-box button {
         height: 100%;

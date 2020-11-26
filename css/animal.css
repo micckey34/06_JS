@@ -1,0 +1,72 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        font-family: 'Hiragino Mincho Pro';
+    }
+    
+    html {
+        height: 100%;
+    }
+    
+    body {
+        width: 100%;
+        background: linear-gradient(azure, #7d17e4) fixed;
+    }
+    
+    .ui {
+        width: 80%;
+        min-width: 800px;
+        height: 80vh;
+        margin: 4rem auto;
+        background: linear-gradient( #7d17e4, azure);
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .box {
+        width: 90%;
+        height: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    
+    .name {
+        width: 40%;
+        height: 100%;
+        color: azure;
+        background: linear-gradient(azure, #7d17e4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        font-size: 40px;
+        border-radius: 10px;
+        text-decoration: none;
+    }
+    
+    .btn {
+        height: 10%;
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .btn a {
+        display: block;
+        height: 50px;
+        line-height: 50px;
+        width: 200px;
+        text-align: center;
+        font-size: 20px;
+        text-decoration: none;
+        background: #7d17e4;
+        color: azure;
+    }

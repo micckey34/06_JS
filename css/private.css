@@ -4,29 +4,29 @@
         box-sizing: border-box;
         outline: none;
     }
-    
+
     html {
         height: 100%;
     }
-    
+
     body {
         width: 100%;
         background: linear-gradient(azure, #7d17e4) fixed;
         font-family: 'Hiragino Mincho Pro';
     }
-    
+
     .ui {
         width: 80%;
         min-width: 800px;
         height: 80vh;
         margin: 4rem auto;
-        background: linear-gradient( #7d17e4, azure);
+        background: linear-gradient(#7d17e4, azure);
         border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: space-around;
     }
-    
+
     .left-box {
         width: 40%;
         height: 90%;
@@ -34,7 +34,7 @@
         flex-direction: column;
         justify-content: space-between;
     }
-    
+
     .input {
         width: 100%;
         height: 80%;
@@ -49,7 +49,7 @@
         justify-content: space-around;
         color: azure;
     }
-    
+
     .back {
         display: block;
         width: 100%;
@@ -64,12 +64,12 @@
         border: 2px solid azure;
         background: rgba(125, 23, 228, 0.7);
     }
-    
+
     .back:hover {
         background: azure;
         color: blueviolet;
     }
-    
+
     input {
         height: 30px;
         padding: 0 1rem;
@@ -83,7 +83,7 @@
         display: flex;
         flex-direction: column;
     }
-    
+
     textarea {
         padding: 1rem;
         letter-spacing: 5px;
@@ -94,7 +94,7 @@
         box-shadow: 0 0 5px black;
         border-radius: 10px;
     }
-    
+
     button {
         height: 40px;
         border-radius: 10px;
@@ -103,11 +103,11 @@
         background: rgba(196, 154, 236, 0.7);
         color: azure;
     }
-    
+
     button:active {
         background: rgba(100, 50, 146, 0.7);
     }
-    
+
     .text-box {
         width: 45%;
         height: 90%;
@@ -121,7 +121,7 @@
         flex-direction: column;
         color: azure;
     }
-    
+
     .text-box h3 {
         height: 10%;
         width: 80%;
@@ -130,15 +130,15 @@
         border-bottom: 2px ridge azure;
         margin-top: 20px;
     }
-    
+
     #output {
         height: 84%;
         width: 90%;
         overflow: scroll;
         padding: 1rem;
     }
-    
-    .text {
+
+    .text_box {
         float: left;
         clear: both;
         color: #7d17e4;
@@ -146,4 +146,19 @@
         padding: 0 1rem;
         border-radius: 5px;
         margin-bottom: 1rem;
+    }
+
+    li{
+        display: flex;
+        font-size: 20px;
+        line-height: 40px;
+        height: 40px;
+    }
+
+
+    .deleat{
+        margin: 10px;
+        padding: 5px;
+        font-size: 16px;
+        height: 30px;
     }

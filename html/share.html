@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHARE</title>
+    <link rel="stylesheet" href="../css/share.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital@1&family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3379f67773.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1>SHARE ROOM</h1>
+        <p id="header-text">名前を決めてください</p>
+        <input type="text" id="myName">
+        <button id="save">save</button>
+    </header>
+    <main>
+        <div class="left">
+            <div class="img-box">
+                <h2>SHARE IMAGE</h2>
+                <div id="img-output"></div>
+            </div>
+            <div class="task">
+                <!-- <h2>MEMO</h2> -->
+                <h2>MEMO<i class="fas fa-plus"></i></h2>
+                <div class="task-input"><input type="text" id="task" placeholder="メモメモ"><button class="add_btn">+</button></div>
+                <div id="container">
+                    <ul class="task_ul">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="chat">
+            <h2>CHAT ROOM</h2>
+            <div class="output" id="output">
+
+            </div>
+            <div class="text-box">
+                <textarea name="" id="text" cols="30" rows="10"></textarea>
+                <div class="btn-box">
+                    <button id="clear">CLEAR</button>
+                    <button id="send">SEND</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <a href="select.html">BACK</a>
+    </footer>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyApA-l0cFQWkGR0Ua9-AUk_2NRsOMpCRZs",
+            authDomain: "js-battle-5a060.firebaseapp.com",
+            databaseURL: "https://js-battle-5a060.firebaseio.com",
+            projectId: "js-battle-5a060",
+            storageBucket: "js-battle-5a060.appspot.com",
+            messagingSenderId: "248650620062",
+            appId: "1:248650620062:web:3c02d43b37289d05192f8f"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // 日時をいい感じの形式にする関数
+        function convertFromFirestoreTimestampToDatetime(timestamp) {
+            const _d = timestamp ? new Date(timestamp * 1000) : new Date();
+            const Y = _d.getFullYear();
+            const m = (_d.getMonth() + 1).toString().padStart(2, '0');
+            const d = _d.getDate().toString().padStart(2, '0');
+            const H = _d.getHours().toString().padStart(2, '0');
+            const i = _d.getMinutes().toString().padStart(2, '0');
+            const s = _d.getSeconds().toString().padStart(2, '0');
+            return `${Y}/${m}/${d} ${H}:${i}:${s}`;
+        };
+    </script>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+        // ========タスク==========================================
+        // 中央線のチェック
+        $(function() {
+            $('.task_ul').on('click', 'li', function() {
+                let check = $(this).toggleClass('completed');
+            });
+
+            // add text +btnでフォーカス
+            $('.fa-plus').click(function() {
+                $('#task').fadeToggle();
+                $('.add_btn').fadeToggle();
+            })
+
+            $('.add_btn').on('click', function(e) {
+                //  console.log("add")
+                e.preventDefault();
+
+                const data = {
+                    text: $('#task').val(),
+                    time: firebase.firestore.FieldValue.serverTimestamp(),
+                };
+                db.add(data);
+                $('#task').val('');
+            });
+
+
+            // firebase add
+            const db = firebase.firestore().collection('share_task');
+            db.orderBy('time', 'desc').onSnapshot(function(querySnapshot) {
+                // console.log(querySnapshot)
+                const dataArray = [];
+                querySnapshot.docs.forEach(function(doc) {
+                    // console.log(doc.data());
+                    const data = doc.data();
+                    const message = `<li class="task_list"><span id="${doc.id}"><i class="far fa-trash-alt"></span></i>${data.text}</li>`;
+                    dataArray.push(message);
+                });
+                $('.task_ul').html(dataArray);
+
+                // click デリート
+                $('.task_ul').on('click', 'span', function() {
+                    // alert('click on a span')
+                    // console.log(this.id);
+                    firebase.firestore().collection('share_task').doc(this.id).delete().then(function() {
+                        console.log("Document successfully deleted!");
+                    }).catch(function(error) {
+                        console.error("Error removing document: ", error);
+                    });
+                });
+            });
+        });
+        // チャット
+        $('#save').on('click', function() {
+            const myName = $('#myName').val();
+            localStorage.setItem('shareRoom', myName);
+        });
+        if (localStorage.getItem('shareRoom')) {
+            const myName = localStorage.getItem('shareRoom');
+            $('#myName').val(myName);
+            $('#header-text').css('opacity', '0');
+        }
+        const db2 = firebase.firestore().collection('chat');
+        $('#clear').on('click', function() {
+            $('#text').val('');
+        });
+        $('#send').on('click', function() {
+            const data = {
+                name: $('#myName').val(),
+                text: $('#text').val(),
+                time: firebase.firestore.FieldValue.serverTimestamp(),
+            }
+            db2.add(data);
+            $('#text').val('');
+        });
+        db2.orderBy('time', 'desc').onSnapshot(function(querySnapshot) {
+            // console.log(querySnapshot.docs);
+            const dataArray = [];
+            const myName = $('#myName').val();
+            querySnapshot.docs.forEach(function(doc) {
+                const data = doc.data();
+                // console.log(data);
+                if (data.name == myName) {
+                    if (data.text.match(/jpg/)) {
+                        const img = `<div class="myImg"><img src="${data.text}"><p class="myTime">${convertFromFirestoreTimestampToDatetime(data.time.seconds)}</p></div>`
+                        dataArray.push(img);
+                    } else if (data.text.match(/http/)) {
+
+                        const link1 = `<div class="myText"><a href="${data.text}">${data.text}</a><p class="myTime">${convertFromFirestoreTimestampToDatetime(data.time.seconds)}</p></div>`
+                        dataArray.push(link1);
+                    } else {
+                        const message1 = `<div class="myText"><p>${data.text}</p><p class="myTime">${convertFromFirestoreTimestampToDatetime(data.time.seconds)}</p></div>`
+                        dataArray.push(message1);
+                    }
+                } else {
+                    if (data.text.match(/jpg/)) {
+                        const img = `<div class="otherImg"><img src="${data.text}"><p>${convertFromFirestoreTimestampToDatetime(data.time.seconds)}</p></div>`
+                        dataArray.push(img);
+                    } else if (data.text.match(/http/)) {
+                        const link2 = ` <div class="otherText"><a href="${data.text}">${data.text}</a><div class="time"><p>${data.name}</p><p>${convertFromFirestoreTimestampToDatetime(data.time.seconds)}</p></div></div>`
+                        dataArray.push(link2);
+                    } else {
+                        const message2 = ` <div class="otherText"><p>${data.text}</p><div class="time"><p>${data.name}</p><p>${convertFromFirestoreTimestampToDatetime(data.time.seconds)}</p></div></div>`
+                        dataArray.push(message2);
+                    }
+                };
+                $('#output').html(dataArray);
+
+            })
+        })
+    </script>
+    <script>
+        const db = firebase.firestore().collection('share_img');
+        db.orderBy('time', 'desc').onSnapshot(function(querySnapshot) {
+            // console.log(querySnapshot.docs);
+            const imgArray = [];
+            querySnapshot.docs.forEach(function(doc) {
+                const data = doc.data();
+                console.log(data.img);
+                const img = `<h4>${data.text}</h4><img src="${data.img}" class="img">`
+                imgArray.push(img);
+                // console.log(img);
+            });
+            $('#img-output').html(imgArray);
+        });
+    </script>
+</body>
+
+</html>
