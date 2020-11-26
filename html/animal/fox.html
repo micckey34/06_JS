@@ -175,7 +175,7 @@
         })
         const db = firebase.firestore().collection('share_img');
         $('#share').on('click', function() {
-            const share_url = $('#img').attr('src');
+            const share_url = 'https://micckey34.github.io/06_JS/html/animal/' + $('#img').attr('src');
             console.log(share_url);
             const img = {
                 img: share_url,
