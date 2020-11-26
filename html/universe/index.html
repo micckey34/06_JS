@@ -1,79 +1,81 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>universe</title>
+    <link rel="stylesheet" href="style.css">
 
-  
+
 </head>
-<body>
-          <div id="starfield-div">
 
-            <div class="nasa_content">
-              <div class="container">
+<body>
+    <div id="starfield-div">
+
+        <div class="nasa_content">
+            <div class="container">
                 <h1 class="title">タイトル</h1>
                 <p class="today">日付</p>
                 <img src="" class="nasa_img">
-              </div>
-              <div class="text_box">
-                <p class="text">本文</p>
-              </div>
-             </div>
             </div>
-        
+            <div class="text_box">
+                <p class="text">本文</p>
+            </div>
+        </div>
+    </div>
+
     </main>
-  </div>
+    </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="jquery-starfield.js"></script>
-<script src="jquery-starfield.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="jquery-starfield.js"></script>
+    <script src="jquery-starfield.min.js"></script>
 
 
-  <script>
+    <script>
+        const apiKey = "4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d";
+        const url = "https://api.nasa.gov/planetary/apod?api_key=4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d";
 
-    const apiKey = "4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d";
-      const url = "https://api.nasa.gov/planetary/apod?api_key=4JLnx1RVDbTlLHiP52oeMYGSmLzCDE2RZTbxKr4d";
-     
 
-    $(function() {
+        $(function() {
 
-      axios.get(url)  
-      .then(function (response) {
-        // handle success
-        console.log(response.data.title)
-       
-        $('.nasa_content').html(`
+            axios.get(url)
+                .then(function(response) {
+                    // handle success
+                    console.log(response.data.title)
+
+                    $('.nasa_content').html(`
           <div class="container">
             <h1 class="title">${response.data.title}</h1>
             <p class="today">${response.data.date}</p>
+            <div class="img_box">
             <img src="${response.data.hdurl}">
+            </div>
             </div>
     
             <div class="text_box">
             <p class="text">${response.data.explanation}</p>
             </div>
           `);
-        
-        console.log(response);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      
-    });
-    
-    $('#starfield-div').starfield({
-      starDensity: 2.0,
-      mouseScale: 0.5,
-      seedMovement: true
-    });
-         
-    
+
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    // handle error
+                    console.log(error);
+                })
+
+        });
+
+        $('#starfield-div').starfield({
+            starDensity: 2.0,
+            mouseScale: 0.5,
+            seedMovement: true
+        });
     </script>
 </body>
+
 </html>
