@@ -70,6 +70,8 @@
                 time: firebase.firestore.FieldValue.serverTimestamp(),
             }
             db.add(img);
+            $('#text').val('');
+
         })
         $('#back').on('click', function() {
             window.location.href = '../animal.html';
